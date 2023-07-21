@@ -13,7 +13,20 @@ window = pygame.display.set_mode((windowWidth, windowHeight))
 
 # Ф - определяем название для окна игры
 pygame.display.set_caption("Крестики Нолики")
-# тут определяем состояние игры для дальнейшей передачи в цикл ниже
+
+# Ф - определяем цвет окна
+window.fill("white")
+
+# Ф - добавляем картинки крестика и нолика
+imgO = pygame.image.load("images/o.png")
+imgX = pygame.image.load("images/x.png")
+
+# Ф - риусем наши картинки в окне игры
+# Ф - передаем функции blit 2 параметра (саму кратинку, в скобках позицию картинок. координаты (x,y))
+window.blit(imgO, (0, 0))
+window.blit(imgX, (200, 0))
+
+# Ф - тут определяем состояние игры для дальнейшей передачи в цикл ниже
 running = True
 
 # запускаем цикл игры
