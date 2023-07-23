@@ -24,34 +24,31 @@ imgX = pygame.image.load("images/x.png")
 # E - добавляем картинку поля
 imgG = pygame.image.load("images/g.png")
 
-# Ф - риусем наши картинки в окне игры
-# Ф - передаем функции blit 2 параметра (саму кратинку, в скобках позицию картинок. координаты (x,y))
+# Определяем размер картинок. Картинки квадратные так что можем определить один размер без высоты и ширины
+imgSize = 140
 
-# E - расположение по координатам ноликов
-window.blit(imgO, (48, 48))
-window.blit(imgO, (230, 48))
-window.blit(imgO, (410, 48))
-window.blit(imgO, (48, 230))
-window.blit(imgO, (230, 230))
-window.blit(imgO, (410, 230))
-window.blit(imgO, (48, 410))
-window.blit(imgO, (230, 410))
-window.blit(imgO, (410, 410))
+# Определяем отступ для картинок в ячейке
+imgMargin = 10
 
-# Е - расположение по координатам крестиков
-window.blit(imgX, (48, 48))
-window.blit(imgX, (230, 48))
-window.blit(imgX, (410, 48))
-window.blit(imgX, (48, 230))
-window.blit(imgX, (230, 230))
-window.blit(imgX, (410, 230))
-window.blit(imgX, (48, 410))
-window.blit(imgX, (230, 410))
-window.blit(imgX, (410, 410))
+# Опередляем толщину границы таблицы
+tableBorder = 40
+
+# Определяем толщину границы ячеек
+cellBorder = 20
+
+# Ф - Определям переменную для картинки по Х
+# Ф - позицию Х для первой картинки вычесляем по формуле (граница таблицы + отступ для картинки)
+imgPositionX = tableBorder + imgMargin
+# Ф - Определям переменную для картинки по Х
+# Ф - позицию Y для первой такая же самая как и для Х
+imgPositionY = tableBorder + imgMargin
+# Ф - после добавляем нашу картинку в игру
+window.blit(imgO, (imgPositionX,imgPositionY))
+
+
 
 # Е - передаем функцию blit 2 параметра()
 window.blit(imgG, (0, 0))
-
 
 # Ф - тут определяем состояние игры для дальнейшей передачи в цикл ниже
 running = True
@@ -60,7 +57,6 @@ running = True
 while running:
 
     # E - немогу понять почему именно в этой позиции я пишу но вот они линии, пропишу все сразу
-
     pygame.draw.line(window, 'red', (118, 58), (118, 540), 10)
     pygame.draw.line(window, 'red', (298, 58), (298, 540), 10)
     pygame.draw.line(window, 'red', (478, 58), (478, 540), 10)
