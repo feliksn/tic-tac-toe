@@ -38,12 +38,12 @@ cellBorder = 20
 
 # Ф - Определям переменную для картинки по Х
 # Ф - позицию Х для первой картинки вычесляем по формуле (граница таблицы + отступ для картинки)
-imgPositionX = tableBorder + imgMargin
+img1PosX = tableBorder + imgMargin
 # Ф - Определям переменную для картинки по Х
 # Ф - позицию Y для первой такая же самая как и для Х
-imgPositionY = tableBorder + imgMargin
+img1PosY = tableBorder + imgMargin
 # Ф - после добавляем нашу картинку в игру
-window.blit(imgO, (imgPositionX,imgPositionY))
+window.blit(imgO, (img1PosX, img1PosY))
 
 
 
