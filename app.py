@@ -65,9 +65,11 @@ def getImgPos(index):
             posY = tableBorder + marginsY*imgMargin + cellBordersY*cellBorder + imgSizesY*imgSize
             return {"x":posX, "y":posY}
 
-
-# Е - передаем функцию blit 2 параметра()
-window.blit(imgG, (0, 0))
+# Ф - добавляем функцию создания, получения координат по номеру ячейки и добавления картинки в таблицу игры
+def addImg(name,index):
+    img = pygame.image.load("images/{}.png".format(name))
+    imgPos = getImgPos(index)
+    window.blit(img, (imgPos["x"], imgPos["y"]))
 
 # Ф - тут определяем состояние игры для дальнейшей передачи в цикл ниже
 running = True
