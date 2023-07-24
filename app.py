@@ -25,16 +25,12 @@ window.blit(imgG,(0,0))
 def getImgPos(index):
     # Определяем размер картинок. Картинки квадратные так что можем определить один размер без высоты и ширины
     imgSize = 140
-
     # Определяем отступ для картинок в ячейке
     imgMargin = 10
-
     # Опередляем толщину границы таблицы
     tableBorder = 40
-
     # Определяем толщину границы ячеек
     cellBorder = 20
-
     # Ф - цикл for от 0 до 8 (от количества ячеек в игре)
     for cell in range(9):
         # Ф - когда цикл проходит находится в 1 ячейке, то устанавливаем начальные значения переменных 
@@ -78,23 +74,21 @@ running = True
 while running:
 
     # E - немогу понять почему именно в этой позиции я пишу но вот они линии, пропишу все сразу
-    pygame.draw.line(window, 'red', (118, 58), (118, 540), 10)
-    pygame.draw.line(window, 'red', (298, 58), (298, 540), 10)
-    pygame.draw.line(window, 'red', (478, 58), (478, 540), 10)
+    # pygame.draw.line(window, 'red', (118, 58), (118, 540), 10)
+    # pygame.draw.line(window, 'red', (298, 58), (298, 540), 10)
+    # pygame.draw.line(window, 'red', (478, 58), (478, 540), 10)
 
-    pygame.draw.line(window, 'red', (58, 118), (540, 118), 10)
-    pygame.draw.line(window, 'red', (58, 298), (540, 298), 10)
-    pygame.draw.line(window, 'red', (58, 478), (540, 478), 10)
+    # pygame.draw.line(window, 'red', (58, 118), (540, 118), 10)
+    # pygame.draw.line(window, 'red', (58, 298), (540, 298), 10)
+    # pygame.draw.line(window, 'red', (58, 478), (540, 478), 10)
 
-    pygame.draw.line(window, 'red', (56, 56), (540, 540), 10)
-    pygame.draw.line(window, 'red', (540, 56), (56, 540), 10)
+    # pygame.draw.line(window, 'red', (56, 56), (540, 540), 10)
+    # pygame.draw.line(window, 'red', (540, 56), (56, 540), 10)
 
     # Ф - запускаем цикл, который ловит нажатие клавишей и события мышки чтобы можно было что-нибудь с этой игрой делать
     for event in pygame.event.get():
-
         # Ф - если ловим событие мышкой на закрытие окна
         if event.type == pygame.QUIT:
-
             # Ф - делаем состояние игры False. Т.е. сбрасываем
             running = False
 
