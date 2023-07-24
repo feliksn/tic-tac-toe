@@ -98,6 +98,17 @@ while running:
             # Ф - делаем состояние игры False. Т.е. сбрасываем
             running = False
 
+        # Ф - Добавил событие мышки клика
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            # Ф - добавил событие отслежевания позиции курсора мыши 
+            mouseX = pygame.mouse.get_pos()[0]
+            mouseY = pygame.mouse.get_pos()[1]
+            if (mouseX >= 40 and mouseX >= 40) and (mouseY <=200 and mouseY <= 200):
+                # Ф - добавляем О в ячейку 1
+                addImg("o",1)
+                
+
+
     # Ф - метод который обнавляет события на экране
     pygame.display.update()
 
