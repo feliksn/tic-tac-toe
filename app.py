@@ -108,20 +108,26 @@ while running:
 
     # Ф - запускаем цикл, который ловит нажатие клавишей и события мышки чтобы можно было что-нибудь с этой игрой делать
     for event in pygame.event.get():
-
         # Ф - если ловим событие мышкой на закрытие окна
         if event.type == pygame.QUIT:
             running = False
-
         # E - работа мышки оп экрану игры
-        elif event.type == pygame.MOUSEBUTTONDOWN:  # Е - нажатие клавиши мыши
-            # Е - если в скобках еще дописать 1, перед event.button то покажет при нажатии что выполняется пункт 1 нажате на клавишу
-            print(event.button)
-        
-        elif event.type == pygame.MOUSEMOTION:      # Е - показывает кординаты расположения мышки на поле
-            # Е - выводит ее координаты (думаю приниты потом убрать  придется)
-            print(event.pos)
-
+        # Е - нажатие клавиши мыши
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            # Ф - записываем в переменные позиции мышки при нажатии мышки
+            mousePosX = pygame.mouse.get_pos()[0]
+            mousePosY = pygame.mouse.get_pos()[1]
+            # Ф - проверяем есть ли курсор мышка в певрой ячейке когда кликаем
+            # Ф - если мышка есть при клике, тогда добавляем туда картинку
+            if mousePosX >= cell1Pos[0] and mousePosY >= cell1Pos[1] and mousePosX <= cell1Pos[2] and mousePosY <= cell1Pos[3]:
+                if not 1 in cachedPos:
+                    if firstX:
+                        window.blit(imgX, (img1PosX, img1PosY))
+                        firstX = False
+                    else:
+                        window.blit(imgO, (img1PosX, img1PosY))
+                        firstX = True
+                    cachedPos.append(1)
 
     # Ф - метод который обнавляет события на экране
     pygame.display.update()
