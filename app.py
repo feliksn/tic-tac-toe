@@ -43,40 +43,40 @@ img1PosX = tableBorder + imgMargin
 # Ф - позицию Y для первой такая же самая как и для Х
 img1PosY = tableBorder + imgMargin
 # Ф - после добавляем нашу картинку в игру
-window.blit(imgO, (img1PosX, img1PosY))
+# window.blit(imgO, (img1PosX, img1PosY))
 
 # E - координаты для других картинок img2 -- img9
 img2PosX = tableBorder + 3*(imgMargin) + cellBorder + imgSize
 img2PosY = tableBorder + imgMargin
-window.blit(imgO, (img2PosX, img2PosY))
+# window.blit(imgO, (img2PosX, img2PosY))
 
 img3PosX = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
 img3PosY = tableBorder + imgMargin
-window.blit(imgO, (img3PosX, img3PosY))
+# window.blit(imgO, (img3PosX, img3PosY))
 
 img4PosX = tableBorder + imgMargin
 img4PosY = tableBorder + 3*(imgMargin) + cellBorder + imgSize
-window.blit(imgO, (img4PosX, img4PosY))
+# window.blit(imgO, (img4PosX, img4PosY))
 
 img5PosX = tableBorder + 3*(imgMargin) + cellBorder + imgSize
 img5PosY = tableBorder + 3*(imgMargin) + cellBorder + imgSize
-window.blit(imgO, (img5PosX, img5PosY))
+# window.blit(imgO, (img5PosX, img5PosY))
 
 img6PosX = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
 img6PosY = tableBorder + 3*(imgMargin) + cellBorder + imgSize
-window.blit(imgO, (img6PosX, img6PosY))
+# window.blit(imgO, (img6PosX, img6PosY))
 
 img7PosX = tableBorder + imgMargin
 img7PosY = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
-window.blit(imgO, (img7PosX, img7PosY))
+# window.blit(imgO, (img7PosX, img7PosY))
 
 img8PosX = tableBorder + 3*(imgMargin) + cellBorder + imgSize
 img8PosY = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
-window.blit(imgO, (img8PosX, img8PosY))
+# window.blit(imgO, (img8PosX, img8PosY))
 
 img9PosX = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
 img9PosY = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
-window.blit(imgO, (img9PosX, img9PosY))
+# window.blit(imgO, (img9PosX, img9PosY))
 
 
 # Е - передаем функцию blit 2 параметра()
@@ -89,6 +89,7 @@ running = True
 while running:
 
     # E - немогу понять почему именно в этой позиции я пишу но вот они линии, пропишу все сразу
+    '''
     pygame.draw.line(window, 'red', (118, 58), (118, 540), 10)
     pygame.draw.line(window, 'red', (298, 58), (298, 540), 10)
     pygame.draw.line(window, 'red', (478, 58), (478, 540), 10)
@@ -99,6 +100,7 @@ while running:
 
     pygame.draw.line(window, 'red', (56, 56), (540, 540), 10)
     pygame.draw.line(window, 'red', (540, 56), (56, 540), 10)
+    '''
 
     # Ф - запускаем цикл, который ловит нажатие клавишей и события мышки чтобы можно было что-нибудь с этой игрой делать
     for event in pygame.event.get():
