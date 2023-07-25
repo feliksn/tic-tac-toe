@@ -66,6 +66,18 @@ img8PosY = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
 img9PosX = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
 img9PosY = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
 
+# опеределяем координаты ячеек в игре и записываем в переменные, чтобы их потом использовать. А не помнить какие координаты имеет какая ячейка
+cell1Pos = (img1PosX, img1PosY, img1PosX + imgSize, img1PosY + imgSize)
+cell2Pos = (img2PosX, img2PosY, img2PosX + imgSize, img2PosY + imgSize)
+cell3Pos = (img3PosX, img3PosY, img3PosX + imgSize, img3PosY + imgSize)
+cell4Pos = (img4PosX, img4PosY, img4PosX + imgSize, img4PosY + imgSize)
+cell5Pos = (img5PosX, img5PosY, img5PosX + imgSize, img5PosY + imgSize)
+cell6Pos = (img6PosX, img6PosY, img6PosX + imgSize, img6PosY + imgSize)
+cell7Pos = (img7PosX, img7PosY, img7PosX + imgSize, img7PosY + imgSize)
+cell8Pos = (img8PosX, img8PosY, img8PosX + imgSize, img8PosY + imgSize)
+cell9Pos = (img9PosX, img9PosY, img9PosX + imgSize, img9PosY + imgSize)
+
+# Ф - добавляем в игру сетку
 # Е - передаем функцию blit 2 параметра()
 window.blit(imgG, (0, 0))
 
