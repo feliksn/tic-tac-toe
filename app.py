@@ -82,16 +82,11 @@ img9PosX = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
 img9PosY = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
 # window.blit(imgO, (img9PosX, img9PosY))
 
-
 # Е - передаем функцию blit 2 параметра()
 window.blit(imgG, (0, 0))
 
 # Ф - тут определяем состояние игры для дальнейшей передачи в цикл ниже
 running = True
-
-# добавил ФПС и клок незнаю зачем но без них окно закрыывалось сразу же
-FPS = 60
-clock = pygame.time.Clock()
 
 # Ф - запускаем цикл игры
 while running:
@@ -115,21 +110,17 @@ while running:
 
         # Ф - если ловим событие мышкой на закрытие окна
         if event.type == pygame.QUIT:
-            exit()  # E - добавил потому что если оставить пустую строку то не работают ниже elif и закрывает по крестику
+            running = False
 
         # E - работа мышки оп экрану игры
         elif event.type == pygame.MOUSEBUTTONDOWN:  # Е - нажатие клавиши мыши
             # Е - если в скобках еще дописать 1, перед event.button то покажет при нажатии что выполняется пункт 1 нажате на клавишу
             print(event.button)
+        
         elif event.type == pygame.MOUSEMOTION:      # Е - показывает кординаты расположения мышки на поле
             # Е - выводит ее координаты (думаю приниты потом убрать  придется)
             print(event.pos)
 
-# добавил чтоб заработал экран + выше до while running добавил еще двестроки с фпси клок
-    clock.tick(FPS)
-
-    # Ф - делаем состояние игры False. Т.е. сбрасываем
-    # running = False  ---------------- ###### E - закомментировал эту строку и стало  работать.
 
     # Ф - метод который обнавляет события на экране
     pygame.display.update()
