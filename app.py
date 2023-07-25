@@ -11,10 +11,6 @@ windowHeight = 600
 # Ф - определяем размер екрана для игры
 window = pygame.display.set_mode((windowWidth, windowHeight))
 
-# Е - событие мышки добавил 25.07
-pygame.display.set_caption('событие от мыши')
-
-
 # Ф - определяем название для окна игры
 pygame.display.set_caption("Крестики Нолики")
 
