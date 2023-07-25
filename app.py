@@ -17,55 +17,70 @@ pygame.display.set_caption("Крестики Нолики")
 # Ф - определяем цвет окна
 window.fill("white")
 
-# Ф - добавляем таблицу игры
+# Ф - добавляем картинки крестика и нолика
+imgO = pygame.image.load("images/o.png")
+imgX = pygame.image.load("images/x.png")
+
+# E - добавляем картинку поля
 imgG = pygame.image.load("images/g.png")
-window.blit(imgG,(0,0))
 
-# Ф - Добаляем функцию которая будет возрвращать координаты картинки по переданному номеру ячейки, как аргумент
-def getImgPos(index):
-    # Определяем размер картинок. Картинки квадратные так что можем определить один размер без высоты и ширины
-    imgSize = 140
-    # Определяем отступ для картинок в ячейке
-    imgMargin = 10
-    # Опередляем толщину границы таблицы
-    tableBorder = 40
-    # Определяем толщину границы ячеек
-    cellBorder = 20
-    # Ф - цикл for от 0 до 8 (от количества ячеек в игре)
-    for cell in range(9):
-        # Ф - когда цикл проходит находится в 1 ячейке, то устанавливаем начальные значения переменных 
-        if cell == 0:
-            # Ф - тут переменные с количеством отступа для картинок в ячейке по кординатам Х и У (1 - означает количество отступов 1*10px.) Т.е. в начале и по Х и по У у нас одинаковое количество отсупов
-            marginsX = marginsY = 1
-            # Ф - тут так же определяем отступы(cellBordersX, cellBordersY - позиция картинки с границами ячеек) в первой ячейке нет никаких границ значит 0 (0*20px)
-            # Ф - позиция картинки относительно других картинок (imgSizesX, imgSizesY ). В первой ячейке нет картинок слева значит 0(0*140px) 
-            cellBordersX = cellBordersY = imgSizesX = imgSizesY = 0
-        elif cell % 3 == 0:
-            # Ф - когда находимся в 4 и 7 ячейке (т.е. в цикле cell=3 или cell=6, т.е. индекс ячейки кратный 3) количество отступов для картинки marginsX, а также кол-во границ и кол-во картинок слева(cellBordersX, imgSizesX) определяем как начальные без измененй 1
-            marginsX = 1
-            cellBordersX = imgSizesX = 0
-            # Ф - кол-во отступов для картинки определяем вниз +2(marginsY), кол-во границ ячеек определяем вниз +1(cellBordersY), кол-во картинок со вниз +1(imgSizesY)
-            marginsY += 2
-            cellBordersY += 1
-            imgSizesY +=1
-        else:
-            # Ф - в остальных случаях когда цикл находиться не в ячейке 1, находимся в ячейках (2,3,5,6,8,9) не изменяем позиции картинок по У, только по Х. Т.е. кол-во отступов для картинки +2. Кол-во границ ячеек +1. Кол-во отступов картинок слева +1
-            marginsX += 2
-            cellBordersX += 1
-            imgSizesX += 1
-        
-        # Ф - к конце функции добавляем условие которое проверяет номер ячейки (аргумента функции) с индексом ячейки в цикле и в условии возращаем координаты выбранной ячейки
-        if cell == index-1:
-            # Ф - записываем все изменения в переменные позиций и рисуем в игре
-            posX = tableBorder + marginsX*imgMargin + cellBordersX*cellBorder + imgSizesX*imgSize
-            posY = tableBorder + marginsY*imgMargin + cellBordersY*cellBorder + imgSizesY*imgSize
-            return {"x":posX, "y":posY}
+# Определяем размер картинок. Картинки квадратные так что можем определить один размер без высоты и ширины
+imgSize = 140
 
-# Ф - добавляем функцию создания, получения координат по номеру ячейки и добавления картинки в таблицу игры
-def addImg(name,index):
-    img = pygame.image.load("images/{}.png".format(name))
-    imgPos = getImgPos(index)
-    window.blit(img, (imgPos["x"], imgPos["y"]))
+# Определяем отступ для картинок в ячейке
+imgMargin = 10
+
+# Опередляем толщину границы таблицы
+tableBorder = 40
+
+# Определяем толщину границы ячеек
+cellBorder = 20
+
+# Ф - Определям переменную для картинки по Х
+# Ф - позицию Х для первой картинки вычесляем по формуле (граница таблицы + отступ для картинки)
+img1PosX = tableBorder + imgMargin
+# Ф - Определям переменную для картинки по Х
+# Ф - позицию Y для первой такая же самая как и для Х
+img1PosY = tableBorder + imgMargin
+# Ф - после добавляем нашу картинку в игру
+window.blit(imgO, (img1PosX, img1PosY))
+
+# E - координаты для других картинок img2 -- img9
+img2PosX = tableBorder + 3*(imgMargin) + cellBorder + imgSize
+img2PosY = tableBorder + imgMargin
+window.blit(imgO, (img2PosX, img2PosY))
+
+img3PosX = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
+img3PosY = tableBorder + imgMargin
+window.blit(imgO, (img3PosX, img3PosY))
+
+img4PosX = tableBorder + imgMargin
+img4PosY = tableBorder + 3*(imgMargin) + cellBorder + imgSize
+window.blit(imgO, (img4PosX, img4PosY))
+
+img5PosX = tableBorder + 3*(imgMargin) + cellBorder + imgSize
+img5PosY = tableBorder + 3*(imgMargin) + cellBorder + imgSize
+window.blit(imgO, (img5PosX, img5PosY))
+
+img6PosX = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
+img6PosY = tableBorder + 3*(imgMargin) + cellBorder + imgSize
+window.blit(imgO, (img6PosX, img6PosY))
+
+img7PosX = tableBorder + imgMargin
+img7PosY = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
+window.blit(imgO, (img7PosX, img7PosY))
+
+img8PosX = tableBorder + 3*(imgMargin) + cellBorder + imgSize
+img8PosY = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
+window.blit(imgO, (img8PosX, img8PosY))
+
+img9PosX = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
+img9PosY = tableBorder + 5*(imgMargin) + 2*(cellBorder) + 2*(imgSize)
+window.blit(imgO, (img9PosX, img9PosY))
+
+
+# Е - передаем функцию blit 2 параметра()
+window.blit(imgG, (0, 0))
 
 # Ф - тут определяем состояние игры для дальнейшей передачи в цикл ниже
 running = True
@@ -74,34 +89,25 @@ running = True
 while running:
 
     # E - немогу понять почему именно в этой позиции я пишу но вот они линии, пропишу все сразу
-    # pygame.draw.line(window, 'red', (118, 58), (118, 540), 10)
-    # pygame.draw.line(window, 'red', (298, 58), (298, 540), 10)
-    # pygame.draw.line(window, 'red', (478, 58), (478, 540), 10)
+    pygame.draw.line(window, 'red', (118, 58), (118, 540), 10)
+    pygame.draw.line(window, 'red', (298, 58), (298, 540), 10)
+    pygame.draw.line(window, 'red', (478, 58), (478, 540), 10)
 
-    # pygame.draw.line(window, 'red', (58, 118), (540, 118), 10)
-    # pygame.draw.line(window, 'red', (58, 298), (540, 298), 10)
-    # pygame.draw.line(window, 'red', (58, 478), (540, 478), 10)
+    pygame.draw.line(window, 'red', (58, 118), (540, 118), 10)
+    pygame.draw.line(window, 'red', (58, 298), (540, 298), 10)
+    pygame.draw.line(window, 'red', (58, 478), (540, 478), 10)
 
-    # pygame.draw.line(window, 'red', (56, 56), (540, 540), 10)
-    # pygame.draw.line(window, 'red', (540, 56), (56, 540), 10)
+    pygame.draw.line(window, 'red', (56, 56), (540, 540), 10)
+    pygame.draw.line(window, 'red', (540, 56), (56, 540), 10)
 
     # Ф - запускаем цикл, который ловит нажатие клавишей и события мышки чтобы можно было что-нибудь с этой игрой делать
     for event in pygame.event.get():
+
         # Ф - если ловим событие мышкой на закрытие окна
         if event.type == pygame.QUIT:
+
             # Ф - делаем состояние игры False. Т.е. сбрасываем
             running = False
-
-        # Ф - Добавил событие мышки клика
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            # Ф - добавил событие отслежевания позиции курсора мыши 
-            mouseX = pygame.mouse.get_pos()[0]
-            mouseY = pygame.mouse.get_pos()[1]
-            if (mouseX >= 40 and mouseX >= 40) and (mouseY <=200 and mouseY <= 200):
-                # Ф - добавляем О в ячейку 1
-                addImg("o",1)
-                
-
 
     # Ф - метод который обнавляет события на экране
     pygame.display.update()
