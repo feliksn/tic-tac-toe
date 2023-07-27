@@ -68,6 +68,7 @@ def addImg(name, index=False):
 
 # Получение позиции ячейки по ее номеру в аргументе
 def getCellPos(index):
+    # Используем функцию для получения координат картники по номеру, чтобы сформировать координаты ячеек
     imgPos = getImgPos(index)
     x1 = imgPos["x"] - imgMargin
     y1 = imgPos["y"] - imgMargin
@@ -84,6 +85,7 @@ def getCellPos(index):
 def getCellMap():
     result = []
     for i in range(1,10):
+        # записываем в массив dictionary для формирования сетки игры с координатами
         result.append({
             "id": i,
             "coords": getCellPos(i)
@@ -125,20 +127,8 @@ def isWinnedPos(arr):
 #             "y2": getImgPos(i)["y"]
 #         })
 
+    # pg.draw.line(window, lineColor, (x1,y1), (x2,y2), lineWidth)
 
-    # pygame.draw.line(window, 'red', (118, 58), (118, 540), 10)
-    # pygame.draw.line(window, 'red', (298, 58), (298, 540), 10)
-    # pygame.draw.line(window, 'red', (478, 58), (478, 540), 10)
-
-    # pygame.draw.line(window, 'red', (58, 118), (540, 118), 10)
-    # pygame.draw.line(window, 'red', (58, 298), (540, 298), 10)
-    # pygame.draw.line(window, 'red', (58, 478), (540, 478), 10)
-
-    # pygame.draw.line(window, 'red', (56, 56), (540, 540), 10)
-    # pygame.draw.line(window, 'red', (540, 56), (56, 540), 10)
-    
-    for event in pygame.event.get():
-        
 
 # Пока игра запущенна, выполняем код внутри цикла
 while isGameRunning:
@@ -155,6 +145,7 @@ while isGameRunning:
             mousePosY = pg.mouse.get_pos()[1]
             # получаем сетку игры с координатами ячеек и записываем ее в переменную, которая являеться массивом
             cellMap = getCellMap()
+            
             # создаем цикл котором будем получать данные о номере ячейки и ее кодинатах в каждом повторении
             for cell in cellMap:
                 # сравниваем позицию курсора мышки с позицией каждой ячейки
@@ -175,14 +166,15 @@ while isGameRunning:
                             
                             # меняем значение переменой на False чтобы следующая картинка не повтрорялась и картинки чередовались
                             isXfirst = False
-                        # если начинали с Х, ходы 2,4,6,8 в данном блоке будут с О
-                        # eсли в начале файла поменять isXfirst=False то игра будет начинаться с О
+                        
+                        # если начинали с Х, то ходы в очереди 2,4,6,8 в блоке else будут начинаться с О
                         else:
                             addImg("o", cell["id"])
                             usedPosO.append(cell["id"])
                             if isWinnedPos(usedPosO):
                                 print("Game over! O wins!")
                             isXfirst = True
+                        
                         # после того как добавили любую картинку, записываем в массив номер уже использованной позиции, чтобы не добавлять других картинок
                         usedPos.append(cell["id"])
 
