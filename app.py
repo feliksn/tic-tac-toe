@@ -1,6 +1,7 @@
-import pygame
+import pygame as pg
+# import numpy as np
 
-pygame.init()
+pg.init()
 
 # Определяем настройки игры
 gameName = "Крестики-нолики"
@@ -16,8 +17,8 @@ isXfirst = True
 usedPos = []
 winnedPos = []
 
-pygame.display.set_caption(gameName)
-window = pygame.display.set_mode((gameWidth, gameHeight))
+pg.display.set_caption(gameName)
+window = pg.display.set_mode((gameWidth, gameHeight))
 window.fill(gameBg)
 
 # Ф - Функция возвращает координаты картинки по переданному ей аргументу(номеру ячейки)Т.е.  
@@ -44,7 +45,7 @@ def getImgPos(index):
 
 # Добавление картинки в игру по аргументам(имя картинки, позиция ячейки)
 def addImg(name, index=False):
-    img = pygame.image.load("images/{}.png".format(name))
+    img = pg.image.load("images/{}.png".format(name))
     if index:
         pos = getImgPos(index)
     else:
@@ -92,13 +93,20 @@ while isGameRunning:
     
     for event in pygame.event.get():
         
-        if event.type == pygame.QUIT:
+
+# Пока игра запущенна, выполняем код внутри цикла
+while isGameRunning:
+    addImg("g")
+    
+    for event in pg.event.get():
+        
+        if event.type == pg.QUIT:
             isGameRunning = False
         
-        elif event.type == pygame.MOUSEBUTTONDOWN:
+        elif event.type == pg.MOUSEBUTTONDOWN:
             # записываем в переменные позиции х,у мышки после нажатия
-            mousePosX = pygame.mouse.get_pos()[0]
-            mousePosY = pygame.mouse.get_pos()[1]
+            mousePosX = pg.mouse.get_pos()[0]
+            mousePosY = pg.mouse.get_pos()[1]
             # получаем сетку игры с координатами ячеек и записываем ее в переменную, которая являеться массивом
             cellMap = getCellMap()
             # создаем цикл котором будем получать данные о номере ячейки и ее кодинатах в каждом повторении
@@ -122,6 +130,6 @@ while isGameRunning:
                         # после того как добавили любую картинку, записываем в массив номер уже использованной позиции, чтобы не добавлять других картинок
                         usedPos.append(cell["id"])
 
-    pygame.display.update()
+    pg.display.update()
 
-pygame.quit()
+pg.quit()
