@@ -10,12 +10,26 @@ gameWidth = 600
 gameHeight = 600
 imgSize = 140
 imgMargin = 10
+tableSize = 600
 tableBorder = 40
 cellBorder = 20
+lineWidth = 10
+lineColor = "#ffff00"
 isGameRunning = True
 isXfirst = True
 usedPos = []
-winnedPos = []
+usedPosX = []
+usedPosO = []
+winnedLines = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+    [1,4,7],
+    [2,5,8],
+    [3,6,9],
+    [1,5,9],
+    [3,5,7]
+]
 
 pg.display.set_caption(gameName)
 window = pg.display.set_mode((gameWidth, gameHeight))
