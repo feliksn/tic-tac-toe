@@ -107,6 +107,10 @@ while isGameRunning:
             # Е - выводит ее координаты (думаю приниты потом убрать  придется)
             print(event.pos)
 
+         # Е - выводит позицию клика мышки
+        x, y = pygame.mouse.get_pos()
+        print('Mouse position: ({},{})'.format(x, y))
+
     # Ф - метод который обнавляет события на экране
     pygame.display.update()
 
