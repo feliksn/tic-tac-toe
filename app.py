@@ -2,6 +2,7 @@ import pygame
 
 pygame.init()
 
+
 # Определяем настройки игры
 gameName = "Крестики-нолики"
 gameBg = "#ffffff"
@@ -100,16 +101,14 @@ while isGameRunning:
 
         # E - работа мышки оп экрану игры
         elif event.type == pygame.MOUSEBUTTONDOWN:  # Е - нажатие клавиши мыши
-            # Е - если в скобках еще дописать 1, перед event.button то покажет при нажатии что выполняется пункт 1 нажате на клавишу
-            print(event.button)
+
+            # Е - выводит позицию клика мышки
+            x, y = pygame.mouse.get_pos()
+            print('Mouse position: ({},{})'.format(x, y))
 
         elif event.type == pygame.MOUSEMOTION:      # Е - показывает кординаты расположения мышки на поле
             # Е - выводит ее координаты (думаю приниты потом убрать  придется)
             print(event.pos)
-
-         # Е - выводит позицию клика мышки
-        x, y = pygame.mouse.get_pos()
-        print('Mouse position: ({},{})'.format(x, y))
 
     # Ф - метод который обнавляет события на экране
     pygame.display.update()
